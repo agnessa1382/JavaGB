@@ -4,6 +4,11 @@ public class HomeWorkApp {
         checkSumSign();
         printColor();
         compareNumbers();
+        System.out.println(sumNumbers(9, 8));
+        isPositiveNumbers(-5);
+        System.out.println(isNegativeInteger(-10));
+        stringInteger(5, "Привет");
+        System.out.println(leapYear(2000));
 
     }
 
@@ -47,5 +52,38 @@ public class HomeWorkApp {
         else{
             System.out.println("a<b");
         }
+    }
+
+    public static boolean sumNumbers(int a, int b){
+        return a+b>=10 && a+b<=20;
+    }
+
+    public static void isPositiveNumbers(int a){
+        if(a>=0){
+            System.out.println("Число положительное");
+        }
+        else {
+            System.out.println("Число отрицательное");
+        }
+    }
+
+    public static boolean isNegativeInteger(int a){
+        return a<0;
+    }
+
+    public static void stringInteger(int a, String s) {
+        for (int i = 0; i < a; i++) {
+            System.out.println(s);
+        }
+    }
+
+    public static boolean leapYear(int a){
+        if (a % 400 == 0) {
+            return true;
+        }
+        if (a % 100 == 0) {
+            return false;
+        }
+        return a % 4 == 0;
     }
 }
