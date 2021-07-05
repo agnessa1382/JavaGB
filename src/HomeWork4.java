@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class HomeWork4 {
     public static char[][] map;
-    public static final int SIZE = 3;
-    public static final int DOTS_TO_WIN = 3;
+    public static final int SIZE = 5;
+    public static final int DOTS_TO_WIN = 4;
 
     public static final char DOT_X = 'X';
     public static final char DOT_O = '0';
@@ -107,19 +107,31 @@ public class HomeWork4 {
     }
 
     public static boolean isVinner(char sumb){
-        for (int i =0;i<SIZE-1;i++){
-            if(map[i][0] == sumb && map[i][1] == sumb && map[i][2] == sumb){
+        for (int i =0;i<SIZE;i++){
+            if(map[i][0] == sumb && map[i][1] == sumb && map[i][2] == sumb && map[i][3] == sumb){
                 return true;
             }
-            if(map[0][i] == sumb && map[1][i] == sumb && map[2][i] == sumb){
+            if(map[0][i] == sumb && map[1][i] == sumb && map[2][i] == sumb && map[3][i] == sumb){
+                return true;
+            }
+
+            if(map[i][1] == sumb && map[i][2] == sumb && map[i][3] == sumb && map[i][4] == sumb){
+                return true;
+            }
+            if(map[1][i] == sumb && map[2][i] == sumb && map[3][i] == sumb && map[4][i] == sumb){
                 return true;
             }
         }
-        if(map[0][0] == sumb && map[1][1] == sumb && map[2][2] == sumb){
-            return true;
-        }
-        if(map[0][2] == sumb && map[1][1] == sumb && map[2][0] == sumb){
-            return true;
+
+        for (int i=0;i<=1;i++){
+            for (int j=0; j<=1;j++){
+                if(map[0+i][0+j] == sumb && map[1+i][1+j] == sumb && map[2+i][2+j] == sumb && map[3+i][3+j] == sumb){
+                    return true;
+                }
+                if(map[0+i][4-j] == sumb && map[1+i][3-j] == sumb && map[2+i][2-j] == sumb && map[3+i][1-j] == sumb){
+                    return true;
+                }
+            }
         }
         return false;
     }
